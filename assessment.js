@@ -34,12 +34,17 @@
     // ツイートエリアの作成
     removeAllChildren(tweetDivided)
     const anchor = document.createElement('a')
-    const hrefValue = `https://twitter.com/intent/tweet?button_hashtag=%E3%81%82%E3%81%AA%E3%81%9F%E3%81%AE%E3%81%84%E3%81%84%E3%81%A8%E3%81%93%E3%82%8D&text=${encodeURIComponent(assessment(userName))}`
+    const hrefValue = 'https://twitter.com/intent/tweet?button_hashtag=%E3%81%82%E3%81%AA%E3%81%9F%E3%81%AE%E3%81%84%E3%81%84%E3%81%A8%E3%81%93%E3%82%8D'
     anchor.setAttribute('href', hrefValue)
+    anchor.dataset.text = assessment(userName)
+    anchor.dataset.url = 'https://mktoho12.github.io/assessment/assessment.html'
+    anchor.dataset.related = 'mktoho12'
+    anchor.dataset.lang = 'ja'
+    anchor.dataset.size = 'large'
     anchor.className = 'twitter-hashtag-button'
     anchor.innerText = 'Tweet #%E3%81%82%E3%81%AA%E3%81%9F%E3%81%AE%E3%81%84%E3%81%84%E3%81%A8%E3%81%93%E3%82%8D'
     tweetDivided.appendChild(anchor)
-
+    
     twttr.widgets.load()
   }
 
